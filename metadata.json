@@ -1,0 +1,6 @@
+{
+  "name": "Brigada MX",
+  "description": "Digitización de brigadas territoriales para campañas políticas. Gestión de rutas, encuestas en campo y monitoreo en tiempo real.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

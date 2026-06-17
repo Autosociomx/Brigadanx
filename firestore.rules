@@ -1,0 +1,39 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Basic rules for Brigada MX
+    // We allow reading parties for branding on splash screens
+    match /parties/{partyId} {
+      allow read: if true;
+      allow write: if false; // Only admin/manual
+    }
+    
+    // Brigadists can read their own info if they know their code
+    match /brigadists/{brigadistId} {
+      allow read: if true; 
+      allow write: if false; // Only coordinator
+    }
+
+    match /districts/{districtId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /colonies/{colonyId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /routes/{routeId} {
+      allow read: if true;
+      allow write: if true; // Brigadists update status
+    }
+
+    match /surveys/{surveyId} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if false;
+    }
+  }
+}

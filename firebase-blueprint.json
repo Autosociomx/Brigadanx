@@ -1,0 +1,66 @@
+{
+  "collections": {
+    "parties": {
+      "selection": "parties",
+      "documentation": "Main configuration for political parties using the platform.",
+      "fields": {
+        "name": "string",
+        "primaryColor": "string",
+        "logoUrl": "string",
+        "slug": "string"
+      }
+    },
+    "brigadists": {
+      "selection": "brigadists",
+      "documentation": "Users in the field performing surveys.",
+      "fields": {
+        "partyId": "string",
+        "name": "string",
+        "code": "string",
+        "districtId": "string",
+        "active": "boolean"
+      }
+    },
+    "districts": {
+      "selection": "districts",
+      "documentation": "Electoral districts for a party.",
+      "fields": {
+        "partyId": "string",
+        "name": "string",
+        "coordinatorName": "string"
+      }
+    },
+    "colonies": {
+      "selection": "colonies",
+      "documentation": "Neighborhoods within a district.",
+      "fields": {
+        "districtId": "string",
+        "name": "string",
+        "streets": "array"
+      }
+    },
+    "routes": {
+      "selection": "routes",
+      "documentation": "Assigned streets for a brigadist.",
+      "fields": {
+        "brigadistId": "string",
+        "colonyId": "string",
+        "partyId": "string",
+        "streets": "array",
+        "status": "string"
+      }
+    },
+    "surveys": {
+      "selection": "surveys",
+      "documentation": "Data captured in the field.",
+      "fields": {
+        "partyId": "string",
+        "brigadistId": "string",
+        "colonyId": "string",
+        "timestamp": "number",
+        "location": "map",
+        "data": "map"
+      }
+    }
+  }
+}
